@@ -2,21 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 
 <head>
-    <title>SurfsideMedia</title>
+    <title>@yield('title','Dashboard')</title>
     <meta charset="utf-8">
-    <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animation.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="font/fonts.css">
-    <link rel="stylesheet" href="icon/style.css">
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="css/sweetalert.min.css">
-    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/assets/admin/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/admin/css/animation.css">
+    <link rel="stylesheet" type="text/css" href="/assets/admin/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/admin/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/admin/css/style.css">
+    <link rel="stylesheet" href="/assets/admin/font/fonts.css">
+    <link rel="stylesheet" href="/assets/admin/icon/style.css">
+    <link rel="shortcut icon" href="/assets/admin/images/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="/assets/admin/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/admin/css/sweetalert.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/admin/css/custom.css">
 </head>
 
 <body class="body">
@@ -24,17 +23,11 @@
         <div id="page" class="">
             <div class="layout-wrap">
 
-                <!-- <div id="preload" class="preload-container">
-    <div class="preloading">
-        <span></span>
-    </div>
-</div> -->
-
                 <div class="section-menu-left">
                     <div class="box-logo">
-                        <a href="index.html" id="site-logo-inner">
-                            <img class="" id="logo_header" alt="" src="images/logo/logo.png"
-                                data-light="images/logo/logo.png" data-dark="images/logo/logo.png">
+                        <a href="/" id="site-logo-inner">
+                            <img class="" id="logo_header" alt="" src="/assets/admin/images/logo/logo.png"
+                                data-light="/assets/admin/images/logo/logo.png" data-dark="/assets/admin/images/logo/logo.png">
                         </a>
                         <div class="button-show-hide">
                             <i class="icon-menu-left"></i>
@@ -163,9 +156,9 @@
                         <div class="wrap">
                             <div class="header-left">
                                 <a href="index-2.html">
-                                    <img class="" id="logo_header_mobile" alt="" src="images/logo/logo.png"
-                                        data-light="images/logo/logo.png" data-dark="images/logo/logo.png"
-                                        data-width="154px" data-height="52px" data-retina="images/logo/logo.png">
+                                    <img class="" id="logo_header_mobile" alt="" src="/assets/admin/images/logo/logo.png"
+                                        data-light="/assets/admin/images/logo/logo.png" data-dark="/assets/admin/images/logo/logo.png"
+                                        data-width="154px" data-height="52px" data-retina="/assets/admin/images/logo/logo.png">
                                 </a>
                                 <div class="button-show-hide">
                                     <i class="icon-menu-left"></i>
@@ -192,7 +185,7 @@
                                                 <ul>
                                                     <li class="product-item gap14 mb-10">
                                                         <div class="image no-bg">
-                                                            <img src="images/products/17.png" alt="">
+                                                            <img src="/assets/admin/images/products/17.png" alt="">
                                                         </div>
                                                         <div class="flex items-center justify-between gap20 flex-grow">
                                                             <div class="name">
@@ -206,7 +199,7 @@
                                                     </li>
                                                     <li class="product-item gap14 mb-10">
                                                         <div class="image no-bg">
-                                                            <img src="images/products/18.png" alt="">
+                                                            <img src="/assets/admin/images/products/18.png" alt="">
                                                         </div>
                                                         <div class="flex items-center justify-between gap20 flex-grow">
                                                             <div class="name">
@@ -220,7 +213,7 @@
                                                     </li>
                                                     <li class="product-item gap14">
                                                         <div class="image no-bg">
-                                                            <img src="images/products/19.png" alt="">
+                                                            <img src="/assets/admin/images/products/19.png" alt="">
                                                         </div>
                                                         <div class="flex items-center justify-between gap20 flex-grow">
                                                             <div class="name">
@@ -243,7 +236,7 @@
                                                 <ul>
                                                     <li class="product-item gap14 mb-10">
                                                         <div class="image no-bg">
-                                                            <img src="images/products/20.png" alt="">
+                                                            <img src="/assets/admin/images/products/20.png" alt="">
                                                         </div>
                                                         <div class="flex items-center justify-between gap20 flex-grow">
                                                             <div class="name">
@@ -257,7 +250,7 @@
                                                     </li>
                                                     <li class="product-item gap14 mb-10">
                                                         <div class="image no-bg">
-                                                            <img src="images/products/21.png" alt="">
+                                                            <img src="/assets/admin/images/products/21.png" alt="">
                                                         </div>
                                                         <div class="flex items-center justify-between gap20 flex-grow">
                                                             <div class="name">
@@ -271,7 +264,7 @@
                                                     </li>
                                                     <li class="product-item gap14 mb-10">
                                                         <div class="image no-bg">
-                                                            <img src="images/products/22.png" alt="">
+                                                            <img src="/assets/admin/images/products/22.png" alt="">
                                                         </div>
                                                         <div class="flex items-center justify-between gap20 flex-grow">
                                                             <div class="name">
@@ -285,7 +278,7 @@
                                                     </li>
                                                     <li class="product-item gap14">
                                                         <div class="image no-bg">
-                                                            <img src="images/products/23.png" alt="">
+                                                            <img src="/assets/admin/images/products/23.png" alt="">
                                                         </div>
                                                         <div class="flex items-center justify-between gap20 flex-grow">
                                                             <div class="name">
@@ -379,7 +372,7 @@
                                             id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
                                             <span class="header-user wg-user">
                                                 <span class="image">
-                                                    <img src="images/avatar/user-1.png" alt="">
+                                                    <img src="/assets/admin/images/avatar/user-1.png" alt="">
                                                 </span>
                                                 <span class="flex flex-column">
                                                     <span class="body-title mb-2">Kristin Watson</span>
@@ -437,11 +430,12 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="main-content">
 
                         <div class="main-content-inner">
 
-                            <div class="main-content-wrap">
+                            <!-- <div class="main-content-wrap">
                                 <div class="tf-section-2 mb-30">
                                     <div class="flex gap20 flex-wrap-mobile">
                                         <div class="w-half">
@@ -687,49 +681,53 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> -->
 
+                            @yield('main')
                         </div>
 
 
-                        <div class="bottom-page">
+                        <!-- <div class="bottom-page">
                             <div class="body-text">Copyright © 2024 SurfsideMedia</div>
-                        </div>
+                        </div> -->
                     </div>
+
+                    
 
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-select.min.js"></script>
-    <script src="js/sweetalert.min.js"></script>
-    <script src="js/apexcharts/apexcharts.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/assets/admin/js/jquery.min.js"></script>
+    <script src="/assets/admin/js/bootstrap.min.js"></script>
+    <script src="/assets/admin/js/bootstrap-select.min.js"></script>
+    <script src="/assets/admin/js/sweetalert.min.js"></script>
+    <script src="/assets/admin/js/apexcharts/apexcharts.js"></script>
+    <script src="/assets/admin/js/main.js"></script>
     <script>
-        (function ($) {
+        (function($) {
 
-            var tfLineChart = (function () {
+            var tfLineChart = (function() {
 
-                var chartBar = function () {
+                var chartBar = function() {
 
                     var options = {
                         series: [{
-                            name: 'Total',
-                            data: [0.00, 0.00, 0.00, 0.00, 0.00, 273.22, 208.12, 0.00, 0.00, 0.00, 0.00, 0.00]
-                        }, {
-                            name: 'Pending',
-                            data: [0.00, 0.00, 0.00, 0.00, 0.00, 273.22, 208.12, 0.00, 0.00, 0.00, 0.00, 0.00]
-                        },
-                        {
-                            name: 'Delivered',
-                            data: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
-                        }, {
-                            name: 'Canceled',
-                            data: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
-                        }],
+                                name: 'Total',
+                                data: [0.00, 0.00, 0.00, 0.00, 0.00, 273.22, 208.12, 0.00, 0.00, 0.00, 0.00, 0.00]
+                            }, {
+                                name: 'Pending',
+                                data: [0.00, 0.00, 0.00, 0.00, 0.00, 273.22, 208.12, 0.00, 0.00, 0.00, 0.00, 0.00]
+                            },
+                            {
+                                name: 'Delivered',
+                                data: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+                            }, {
+                                name: 'Canceled',
+                                data: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+                            }
+                        ],
                         chart: {
                             type: 'bar',
                             height: 325,
@@ -770,7 +768,7 @@
                         },
                         tooltip: {
                             y: {
-                                formatter: function (val) {
+                                formatter: function(val) {
                                     return "$ " + val + ""
                                 }
                             }
@@ -788,22 +786,22 @@
 
                 /* Function ============ */
                 return {
-                    init: function () { },
+                    init: function() {},
 
-                    load: function () {
+                    load: function() {
                         chartBar();
                     },
-                    resize: function () { },
+                    resize: function() {},
                 };
             })();
 
-            jQuery(document).ready(function () { });
+            jQuery(document).ready(function() {});
 
-            jQuery(window).on("load", function () {
+            jQuery(window).on("load", function() {
                 tfLineChart.load();
             });
 
-            jQuery(window).on("resize", function () { });
+            jQuery(window).on("resize", function() {});
         })(jQuery);
     </script>
 </body>
