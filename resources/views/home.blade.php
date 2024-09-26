@@ -1,6 +1,6 @@
 @extends('layouts.layout');
 
-@section('main')
+@section('content')
 <section class="swiper-container js-swiper-slider swiper-number-pagination slideshow" data-settings='{
         "autoplay": {
           "delay": 5000
