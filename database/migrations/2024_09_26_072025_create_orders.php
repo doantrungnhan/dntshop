@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id('orderID');
             $table->string('order_code',100);
-            $table->string('address');
-            $table->string('phone');
             $table->decimal('total_amount',10,2);
             $table->enum('payment_method',['cash','bank_transfer','momo'])->default('cash');
             $table->enum('payment_status',['pending', 'completed', 'failed', 'refunded'])->default('pending');
             $table->enum('order_status',['pending', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded'])->default('pending');
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('promotion_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('userID')->on('users')->nullOnDelete();
+            $table->foreign('promotion_id')->references('promotionID')->on('promotions')->nullOnDelete();
         });
 
 
