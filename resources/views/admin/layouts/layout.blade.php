@@ -437,7 +437,7 @@
                     <div class="main-content">
 
                         <div class="main-content-inner">
-                            @yield('main')
+                            @yield('content')
                         </div>
                     </div>
 
