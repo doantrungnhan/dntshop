@@ -19,13 +19,8 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-<<<<<<< Updated upstream
-            $table->string('avatar', 100)->nullable() ;
-            $table->integer('role')->default(1);
-=======
             $table->string('avatar', 100)->nullable();
-            $table->integer('customer')->default(1);
->>>>>>> Stashed changes
+            $table->integer('role')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
