@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/assets/admin/icon/style.css">
     <link rel="stylesheet" type="text/css" href="/assets/admin/css/sweetalert.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/admin/css/custom.css">
+    @stack("styles")
 </head>
 
 <body class="body">
@@ -139,9 +140,9 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="slider.html" class="">
+                                    <a href="{{ route('admin.banners') }}" class="">
                                         <div class="icon"><i class="icon-image"></i></div>
-                                        <div class="text">Slider</div>
+                                        <div class="text">Banners</div>
                                     </a>
                                 </li>
                                 <li class="menu-item">
@@ -152,7 +153,7 @@
                                 </li>
 
                                 <li class="menu-item">
-                                    <a href="users.html" class="">
+                                    <a href="{{ route('admin.users') }}" class="">
                                         <div class="icon"><i class="icon-user"></i></div>
                                         <div class="text">User</div>
                                     </a>
@@ -567,6 +568,7 @@
             jQuery(window).on("resize", function() {});
         })(jQuery);
     </script>
+    @stack("scripts")
 </body>
 
 </html>
