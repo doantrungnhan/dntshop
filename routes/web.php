@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 require __DIR__ . '/admin.php';
+require __DIR__ . '/tag.php';
 
 Route::get('/', function () {
     return view('home');
