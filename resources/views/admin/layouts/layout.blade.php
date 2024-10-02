@@ -16,7 +16,6 @@
     <link rel="stylesheet" type="text/css" href="/assets/admin/css/style.css">
     <link rel="stylesheet" href="/assets/admin/font/fonts.css">
     <link rel="stylesheet" href="/assets/admin/icon/style.css">
-    
     <link rel="stylesheet" type="text/css" href="/assets/admin/css/sweetalert.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/admin/css/custom.css">
 </head>
@@ -29,8 +28,6 @@
                 <div class="section-menu-left">
                     <div class="box-logo">
                         <a href="/" id="site-logo-inner">
-                            <img class="" id="logo_header" alt="" src="/images/logo/logo.png"
-                                data-light="/images/logo/logo.png" data-dark="/images/logo/logo.png"> 
                         </a>
                         <div class="button-show-hide">
                             <i class="icon-menu-left"></i>
@@ -119,6 +116,24 @@
                                         <li class="sub-menu-item">
                                             <a href="order-tracking.html" class="">
                                                 <div class="text">Order tracking</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item has-children">
+                                    <a href="javascript:void(0);" class="menu-item-button">
+                                        <div class="icon"><i class="icon-file-plus"></i></div>
+                                        <div class="text">Tags</div>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="sub-menu-item">
+                                            <a href="{{route('tag.create')}}" class="">
+                                                <div class="text">Thêm mới</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{route('tag')}}" class="">
+                                                <div class="text">Liệt kê</div>
                                             </a>
                                         </li>
                                     </ul>
@@ -437,6 +452,7 @@
                     <div class="main-content">
 
                         <div class="main-content-inner">
+
                             @yield('content')
                         </div>
                     </div>
