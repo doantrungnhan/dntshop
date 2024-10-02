@@ -8,7 +8,7 @@
                 <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                     <li>
                         <a href="#">
-                            <div class="text-tiny">Quản trị</div>
+                            <div class="text-tiny">Bảng điều khiển</div>
                         </a>
                     </li>
                     <li>

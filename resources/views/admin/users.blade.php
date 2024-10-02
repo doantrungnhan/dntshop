@@ -8,7 +8,7 @@
             <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                 <li>
                     <a href="{{ route('admin.dashboard') }}">
-                        <div class="text-tiny">Dashboard</div>
+                        <div class="text-tiny">Bảng điều khiển</div>
                     </a>
                 </li>
                 <li>
@@ -61,7 +61,7 @@
                                 {{-- <td>{{ $user->avatar }}</td> --}}
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td>{{ $user->customer == 1 ? 'Khách hàng' : 'Admin' }}</td> 
+                                <td>{{ $user->customer == 1 ? 'Khách hàng' : 'Quản trị viên' }}</td> 
                                 <td>
                                     <div class="list-icon-function">
                                         <a href="{{ route('admin.user.edit', $user->userID) }}">
