@@ -26,149 +26,7 @@
         <div id="page" class="">
             <div class="layout-wrap">
 
-                <div class="section-menu-left">
-                    <div class="box-logo">
-                        <a href="/" id="site-logo-inner">
-                        </a>
-                        <div class="button-show-hide">
-                            <i class="icon-menu-left"></i>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <div class="center-item">
-                            <div class="center-heading">Trang chủ</div>
-                            <ul class="menu-list">
-                                <li class="menu-item">
-                                    <a href="{{route('admin.dashboard')}}" class="">
-                                        <div class="icon"><i class="icon-grid"></i></div>
-                                        <div class="text">Bảng điều khiển</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="center-item">
-                            <ul class="menu-list">
-                                <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-shopping-cart"></i></div>
-                                        <div class="text">Products</div>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li class="sub-menu-item">
-                                            <a href="add-product.html" class="">
-                                                <div class="text">Add Product</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="products.html" class="">
-                                                <div class="text">Products</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-layers"></i></div>
-                                        <div class="text">Brand</div>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li class="sub-menu-item">
-                                            <a href="add-brand.html" class="">
-                                                <div class="text">New Brand</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="brands.html" class="">
-                                                <div class="text">Brands</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-layers"></i></div>
-                                        <div class="text">Category</div>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li class="sub-menu-item">
-                                            <a href="add-category.html" class="">
-                                                <div class="text">New Category</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="categories.html" class="">
-                                                <div class="text">Categories</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-file-plus"></i></div>
-                                        <div class="text">Order</div>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li class="sub-menu-item">
-                                            <a href="orders.html" class="">
-                                                <div class="text">Orders</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="order-tracking.html" class="">
-                                                <div class="text">Order tracking</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-file-plus"></i></div>
-                                        <div class="text">Tags</div>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li class="sub-menu-item">
-                                            <a href="{{route('tag.create')}}" class="">
-                                                <div class="text">Thêm mới</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="{{route('tag')}}" class="">
-                                                <div class="text">Liệt kê</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="{{ route('admin.banners') }}" class="">
-                                        <div class="icon"><i class="icon-image"></i></div>
-                                        <div class="text">Banners</div>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="coupons.html" class="">
-                                        <div class="icon"><i class="icon-grid"></i></div>
-                                        <div class="text">Coupns</div>
-                                    </a>
-                                </li>
-
-                                <li class="menu-item">
-                                    <a href="{{ route('admin.users') }}" class="">
-                                        <div class="icon"><i class="icon-user"></i></div>
-                                        <div class="text">User</div>
-                                    </a>
-                                </li>
-
-                                <li class="menu-item">
-                                    <a href="settings.html" class="">
-                                        <div class="icon"><i class="icon-settings"></i></div>
-                                        <div class="text">Settings</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @include('admin.layouts.menu')
                 <div class="section-content-right">
 
                     <div class="header-dashboard">
@@ -176,7 +34,7 @@
                             <div class="header-left">
                                 <a href="{{ route('admin.dashboard')}}">
                                     <img class="" id="logo_header_mobile" alt="" src="/images/logo/logo.png"
-                                        data-light="/images/logo/logo.png" data-dark="//images/logo/logo.png"
+                                        data-light="/images/logo/logo.png" data-dark="/images/logo/logo.png"
                                         data-width="154px" data-height="52px" data-retina="/images/logo/logo.png">
                                 </a>
                                 <div class="button-show-hide">
@@ -451,11 +309,7 @@
                     </div>
 
                     <div class="main-content">
-
-                        <div class="main-content-inner">
-
-                            @yield('content')
-                        </div>
+                        @yield('main')
                     </div>
 
                     
