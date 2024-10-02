@@ -151,7 +151,7 @@ class dashboardController extends Controller
             $file_extension = $avatar->extension();
             $file_name = Carbon::now()->timestamp . '.' . $file_extension;
             $avatar->move(public_path('uploads/avatars'), $file_name);
-            $user->avatar = $file_name; // Save the file name in the database
+            $user->avatar = $file_name; 
         }
 
         $user->save();
