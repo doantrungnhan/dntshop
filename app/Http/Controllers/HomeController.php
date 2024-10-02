@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Banner;
+
 class HomeController extends Controller
 {
     /**
@@ -23,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $banners = Banner::where('hidden', 0)->get()->take(3);
+        return view('home', compact('banners'));
     }
 }
 

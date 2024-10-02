@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('main')
+@section('content')
     <div class="main-content-inner">
         <div class="main-content-wrap">
             <div class="flex items-center flex-wrap justify-between gap20 mb-27">
@@ -47,8 +47,8 @@
                         <div class="body-title">Trạng thái <span class="tf-color-1">*</span></div>
                         <div class="select flex-grow">
                             <select name="hidden" required>
-                                <option value="1" @if ($banner->hidden == '1') selected @endif>Hiện</option>
-                                <option value="0" @if ($banner->hidden == '0') selected @endif>Ẩn</option>
+                                <option value="1" @if ($banner->hidden == '1') selected @endif>Ẩn</option>
+                                <option value="0" @if ($banner->hidden == '0') selected @endif>Hiện</option>
                             </select>
                         </div>
                     </fieldset>

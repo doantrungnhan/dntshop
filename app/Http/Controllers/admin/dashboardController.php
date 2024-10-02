@@ -132,26 +132,31 @@ class dashboardController extends Controller
 
     public function user_store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'full_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
-            'customer' => 'required|in:0,1',
-            'avatar' => 'nullable|mimes:jpeg,jpg,png|max:2048',
+            'role' => 'required|in:0,1',
+            'avatar' => 'required|mimes:jpeg,jpg,png|max:2048',
         ]);
 
         $user = new User();
         $user->full_name = $request->full_name;
         $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
         $user->password = bcrypt($request->password);
-        $user->customer = $request->customer;
+        $user->role = $request->role;
 
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $file_extension = $avatar->extension();
             $file_name = Carbon::now()->timestamp . '.' . $file_extension;
             $avatar->move(public_path('uploads/avatars'), $file_name);
-            $user->avatar = $file_name; // Save the file name in the database
+            $user->avatar = $file_name;
         }
 
         $user->save();
@@ -168,49 +173,32 @@ class dashboardController extends Controller
     public function user_update(Request $request)
     {
         $request->validate([
-            'customer' => 'required|in:0,1',
+            'role' => 'required|in:0,1',
+            'avatar' => 'required|mimes:jpeg,jpg,png|max:2048',
         ]);
 
         $user = User::find($request->userID);
-        if ($user) {
-            $user->customer = $request->customer;
-            $user->save();
-            return redirect()->route('admin.users')->with('status', 'User updated successfully');
-        } else {
-            return redirect()->route('admin.users')->with('error', 'User not found');
+    if ($user) {
+        $user->role = $request->role;
+
+        if ($request->hasFile('avatar')) {
+            if (File::exists(public_path('uploads/avatars') . '/' . $user->avatar)) {
+                File::delete(public_path('uploads/avatars') . '/' . $user->avatar);
+            }
+            $avatar = $request->file('avatar');
+            $file_extension = $avatar->extension();
+            $file_name = Carbon::now()->timestamp . '.' . $file_extension;
+            $avatar->move(public_path('uploads/avatars'), $file_name);
+            $user->avatar = $file_name;
         }
+
+        $user->save();
+        return redirect()->route('admin.users')->with('status', 'Người dùng đã được cập nhật');
+    } else {
+        return redirect()->route('admin.users')->with('error', 'Không tìm thấy người dùng');
     }
-    // public function user_update(Request $request)
-    // {
-    //     $request->validate([
-    //         'customer' => 'required|in:0,1',
-    //         'avatar' => 'nullable|mimes:jpeg,jpg,png|max:2048',
-    //     ]);
-
-    //     $user = User::find($request->userID);
-    //     if ($user) {
-    //         $user->customer = $request->customer;
-
-            
-    //         if ($request->hasFile('avatar')) {
-    //             if (File::exists(public_path('uploads/avatars') . '/' . $user->avatar)) {
-    //                 File::delete(public_path('uploads/avatars') . '/' . $user->avatar);
-    //             }
-    //             $avatar = $request->file('avatar');
-    //             $file_extension = $avatar->extension();
-    //             $file_name = Carbon::now()->timestamp . '.' . $file_extension;
-    //             $avatar->move(public_path('uploads/avatars'), $file_name);
-    //             $user->avatar = $file_name;
-    //         }
-
-    //         $user->save();
-    //         return redirect()->route('admin.users')->with('status', 'Đã cập nhật thông tin người dùng');
-    //     } else {
-    //         return redirect()->route('admin.users')->with('error', 'Người dùng không tồn tại');
-    //     }
-    // }
-
-
+    }
+    
     public function user_delete($userID)
     {
         $user = User::find($userID);

@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('main')
+@section('content')
 <div class="main-content-inner">
     <div class="main-content-wrap">
         <div class="flex items-center flex-wrap justify-between gap20 mb-27">
@@ -46,6 +46,22 @@
                 @enderror
 
                 <fieldset>
+                    <div class="body-title">Số điện thoại <span class="tf-color-1">*</span></div>
+                    <input type="text" name="phone" class="flex-grow" required value="{{ old('phone') }}">
+                </fieldset>
+                @error('phone')
+                    <span class="alert alert-danger text-center">{{ $message }}</span>
+                @enderror
+
+                <fieldset>
+                    <div class="body-title">Địa chỉ <span class="tf-color-1">*</span></div>
+                    <input type="text" name="address" class="flex-grow" required value="{{ old('address') }}">
+                </fieldset>
+                @error('address')
+                    <span class="alert alert-danger text-center">{{ $message }}</span>
+                @enderror
+
+                <fieldset>
                     <div class="body-title">Mật khẩu <span class="tf-color-1">*</span></div>
                     <input type="password" name="password" class="flex-grow" required>
                 </fieldset>
@@ -55,7 +71,7 @@
 
                 <fieldset>
                     <div class="body-title">Xác nhận mật khẩu <span class="tf-color-1">*</span></div>
-                    <input type="password" name="password-confirm" class="flex-grow" required>
+                    <input type="password" name="password_confirmation" class="flex-grow" required>
                 </fieldset>
                 @error('password')
                     <span class="alert alert-danger text-center">{{ $message }}</span>
@@ -64,13 +80,13 @@
                 <fieldset>
                     <div class="body-title">Vai trò <span class="tf-color-1">*</span></div>
                     <div class="select flex-grow">
-                        <select name="customer" required>
-                            <option value="1" @if (old('customer') == '1') selected @endif>Khách hàng</option>
-                            <option value="0" @if (old('customer') == '0') selected @endif>Admin</option>
+                        <select name="role" required>
+                            <option value="1" @if (old('role') == '1') selected @endif>Khách hàng</option>
+                            <option value="0" @if (old('role') == '0') selected @endif>Admin</option>
                         </select>
                     </div>
                 </fieldset>
-                @error('customer')
+                @error('role')
                     <span class="alert alert-danger text-center">{{ $message }}</span>
                 @enderror
 

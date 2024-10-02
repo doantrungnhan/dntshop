@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 
-@section('main')
+@section('content')
 <div class="main-content-inner">
     <div class="main-content-wrap">
         <div class="flex items-center flex-wrap justify-between gap20 mb-27">
@@ -46,8 +46,10 @@
                             <tr>
                                 <th>#</th>
                                 <th>Tên</th>
-                                {{-- <th>Ảnh đại diện</th> --}}
+                                <th>Ảnh đại diện</th>
                                 <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
                                 <th>Ngày tạo</th>
                                 <th>Vai trò</th>
                                 <th>Hành động</th>
@@ -58,10 +60,14 @@
                             <tr>
                                 <td>{{ $user->userID }}</td>
                                 <td>{{ $user->full_name }}</td>
-                                {{-- <td>{{ $user->avatar }}</td> --}}
+                                <td>
+                                    <img src="{{ asset('uploads/avatars/' . $user->avatar) }}" alt="{{ $user->full_name }}" style="width: 70px; height: auto;">
+                                </td>                                
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ $user->address }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td>{{ $user->customer == 1 ? 'Khách hàng' : 'Admin' }}</td> 
+                                <td>{{ $user->role == 1 ? 'Khách hàng' : 'Admin' }}</td> 
                                 <td>
                                     <div class="list-icon-function">
                                         <a href="{{ route('admin.user.edit', $user->userID) }}">

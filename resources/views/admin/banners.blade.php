@@ -1,5 +1,5 @@
 @extends('admin.layouts.layout')
-@section('main')
+@section('content')
     <div class="main-content-inner">
         <div class="main-content-wrap">
             <div class="flex items-center flex-wrap justify-between gap20 mb-27">
@@ -54,8 +54,8 @@
                             <tr>
                                 <td>{{ $banner->bannerID }}</td>
                                 <td class="pname">
-                                    <div class="image">
-                                        <img src="{{ asset('uploads/banners') }}/{{ $banner->image_url }}" alt="" class="{{ $banner->bannerID }}">
+                                    <div class="image" style="width: 150px; height: auto;">
+                                        <img src="{{ asset('uploads/banners') }}/{{ $banner->image_url }}" alt="" class="{{ $banner->bannerID }}" >
                                     </div>
                                 </td>
                                 <td>{{ $banner->hidden ? 'Hiện' : 'Ẩn' }}</td>
