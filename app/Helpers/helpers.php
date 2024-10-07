@@ -29,3 +29,23 @@ function Slug($string)
     // Chuyển chuỗi về dạng chữ thường
     return strtolower($string);
 }
+
+// Thêm vnd sau số tiền
+function number_price($price){
+    return number_format($price,0,',','.') . ' vnđ' ;
+}
+
+// Tính số tiền được giảm từ phiếu giảm giá
+function getPromoDiscount($type,$value, $total_amount){
+    $discount = 0;
+    if($type == 'percentage')
+    {
+        $discount = $total_amount * ($value/100) ;
+    }else if($type  == 'fixed')
+    {
+        $discount = $value ;
+    }
+
+    return $discount ;
+}   
+

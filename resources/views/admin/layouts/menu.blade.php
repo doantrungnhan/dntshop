@@ -77,6 +77,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class="menu-item {{Route::currentRouteName() === 'admin.order' ? 'active' : ''}}">
+                    <a href="{{route('admin.order')}}" class="">
+                        <div class="icon"><i class="icon-grid"></i></div>
+                        <div class="text">Đơn hàng</div>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

@@ -1,10 +1,19 @@
 <?php
 
 use App\Http\Controllers\admin\dashboardController;
+use App\Http\Controllers\admin\orderController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function() {
     Route::get('/', [dashboardController::class, 'index'])->name('admin.dashboard');
+
+
+    //Order 
+    Route::prefix('order')->group(function (){
+        Route::get('/', [orderController::class,'index'])->name('admin.order');
+        Route::get('{code}/detail',[orderController::class,'order_detail'])->name('admin.order.detail');
+        Route::patch('{id}/status',[orderController::class,'update_order_status'])->name('admin.order.status');
+    });
 
     // banners
     Route::get('/banners', [dashboardController::class, 'banners'])->name('admin.banners');
