@@ -35,18 +35,24 @@ class orderController extends Controller
 
     public function index(Request $request)
     {
-        $order_status_vn = $this->order_status_vn ;
+        $order_status_vn = $this->order_status_vn;
         $filter = $request['filter'];
         $search = $request['search'];
+
+        // Bắt đầu truy vấn đơn hàng
+        $orders = Order::query();
+
         if (isset($filter)) {
-            $orders = Order::where('order_status', $filter)->get();
-        } else if (isset($search)) {
-            $orders = Order::where('order_code', 'like', '%' . $search . '%')->get();
-        } else {
-            $orders = Order::all();
+            $orders->where('order_status', $filter);
+        }
+        
+        if (isset($search)) {
+            $orders->where('order_code', 'like', '%' . $search . '%');
         }
 
-        return view('admin.order.list', compact('orders', 'filter','order_status_vn','search'));
+        $orders = $orders->orderBy('created_at', 'desc')->paginate(12);
+
+        return view('admin.order.list', compact('orders', 'filter', 'order_status_vn', 'search'));
     }
 
     public function order_detail(Request $request, $code)
@@ -56,7 +62,7 @@ class orderController extends Controller
         $order_status_vn = $this->order_status_vn;
         $order = Order::where('order_code', $code)->first();
         $orderDetails = Order_detail::where('order_id', $order->orderID)->get();
-        return view('admin.order.detail', compact('orderDetails', 'order','payment_method_vn','payment_status_vn','order_status_vn'));
+        return view('admin.order.detail', compact('orderDetails', 'order', 'payment_method_vn', 'payment_status_vn', 'order_status_vn'));
     }
 
     public function update_order_status(Request $request, $id)
@@ -64,6 +70,6 @@ class orderController extends Controller
         $order = Order::find($id);
         $order->order_status = $request['order_status'];
         $order->save();
-        return redirect()->route('admin.order')->with('success','Thay đổi trạng thái đơn hàng: '.$order->order_code.' thành công');
+        return redirect()->route('admin.order')->with('success', 'Thay đổi trạng thái đơn hàng: ' . $order->order_code . ' thành công');
     }
 }
