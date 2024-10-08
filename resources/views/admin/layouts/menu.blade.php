@@ -48,12 +48,12 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="sub-menu-item">
-                            <a href="{{route('admin.banners')}}" class="">
+                            <a href="{{route('admin.banner.add')}}" class="">
                                 <div class="text">Thêm mới</div>
                             </a>
                         </li>
                         <li class="sub-menu-item">
-                            <a href="{{route('admin.banner.add') }}" class="">
+                            <a href="{{route('admin.banners') }}" class="">
                                 <div class="text">Danh sách</div>
                             </a>
                         </li>
