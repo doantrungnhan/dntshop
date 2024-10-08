@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\categoriesController;
 use App\Http\Controllers\admin\dashboardController;
 use App\Http\Controllers\admin\orderController;
-use App\Http\Controllers\categoriesController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function() {
