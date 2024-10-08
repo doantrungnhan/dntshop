@@ -25,7 +25,6 @@
     <div id="wrapper">
         <div id="page" class="">
             <div class="layout-wrap">
-
                 @include('admin.layouts.menu')
                 <div class="section-content-right">
 

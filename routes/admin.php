@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\dashboardController;
 use App\Http\Controllers\admin\orderController;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,10 @@ Route::prefix('admin')->group(function() {
     Route::get('/', [dashboardController::class, 'index'])->name('admin.dashboard');
 
 
+    Route::prefix('category')->group(function(){
+        Route::get('/',[CategoryController::class, 'index'])->name('admin.category');
+        Route::delete('/{id}', [CategoryController::class,'delete']);
+    });
     //Order 
     Route::prefix('order')->group(function (){
         Route::get('/', [orderController::class,'index'])->name('admin.order');
@@ -31,3 +36,4 @@ Route::prefix('admin')->group(function() {
     Route::put('/users/update', [dashboardController::class, 'user_update'])->name('admin.user.update');
     Route::delete('/users/{userID}/delete', [dashboardController::class, 'user_delete'])->name('admin.user.delete');
 });
+
