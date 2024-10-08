@@ -256,11 +256,7 @@
     }
   </style>
     @include('layouts.header')
-  <main>
     @yield('main')
-  </main>
-
-
   @include('layouts.footer')
 
   <div id="scrollTop" class="visually-hidden end-0"></div>

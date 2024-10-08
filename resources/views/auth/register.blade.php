@@ -1,16 +1,40 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+@section('main')
+<main class="pt-90">
+    <div class="mb-4 pb-4"></div>
+    <section class="login-register container">
+      <ul class="nav nav-tabs mb-5" id="login_register" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link nav-link_underscore active" id="register-tab" data-bs-toggle="tab"
+            href="#tab-item-register" role="tab" aria-controls="tab-item-register" aria-selected="true">Đăng kí</a>
+        </li>
+      </ul>
+      <div class="tab-content pt-2" id="login_register_tab_content">
+        <div class="tab-pane fade show active" id="tab-item-register" role="tabpanel" aria-labelledby="register-tab">
+          <div class="register-form">
+            <form method="POST" action="/register" name="register-form" class="needs-validation" novalidate="">
+                @csrf
+              <div class="form-floating mb-3">
+                <input class="form-control form-control_gray " name="full_name" value="" required="" autocomplete="name"
+                  autofocus="">
+                <label for="name">Họ và tên</label>
+              </div>
+              <div class="pb-3"></div>
+              <div class="form-floating mb-3">
+                <input id="email" type="email" class="form-control form-control_gray " name="email" value="" required=""
+                  autocomplete="email">
+                <label for="email">Địa chỉ Email</label>
+              </div>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+              <div class="pb-3"></div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+              <div class="form-floating mb-3">
+                <input id="mobile" type="text" class="form-control form-control_gray " name="phone" value=""
+                  required="" autocomplete="mobile">
+                <label for="mobile">Số điện thoại</label>
+              </div>
 
+<<<<<<< Updated upstream
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -24,54 +48,31 @@
                                 @enderror
                             </div>
                         </div>
+=======
+              <div class="pb-3"></div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+              <div class="form-floating mb-3">
+                <input id="password" type="password" class="form-control form-control_gray " name="password" required=""
+                  autocomplete="new-password">
+                <label for="password">Mật khẩu</label>
+              </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+              <div class="form-floating mb-3">
+                <input id="password-confirm" type="password" class="form-control form-control_gray"
+                  name="password_confirmation" required="" autocomplete="new-password">
+                <label for="password">Xác nhận mật khẩu</label>
+              </div>
+              <button class="btn btn-primary w-100 text-uppercase" type="submit">Đăng kí</button>
+>>>>>>> Stashed changes
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+              <div class="customer-option mt-4 text-center">
+                <span class="text-secondary">Bạn đã có tài khoản?</span>
+                <a href="{{route('login')}}" class="btn-text js-show-register">Đăng nhập bằng tài khoản bạn có</a>
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
-</div>
-@endsection
+      </div>
+    </section>
+  </main>
+  @endsection
