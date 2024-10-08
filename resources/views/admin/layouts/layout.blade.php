@@ -312,7 +312,7 @@
                         @yield('main')
                     </div>
 
-                    
+
 
                 </div>
             </div>
@@ -422,6 +422,13 @@
             jQuery(window).on("resize", function() {});
         })(jQuery);
     </script>
+    @if (Session::has('success'))
+    <script>
+        window.onload = function() {
+            alert("{{ Session::get('success') }}");
+        };
+    </script>
+    @endif
     @stack("scripts")
 </body>
 
