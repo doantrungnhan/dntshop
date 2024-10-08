@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id('orderID');
             $table->string('order_code',100);
             $table->decimal('total_amount',10,2);
+            $table->decimal('shipping_fee', 10, 2)->default(0);
             $table->enum('payment_method',['cash','bank_transfer','momo'])->default('cash');
-            $table->enum('payment_status',['pending', 'completed', 'failed', 'refunded'])->default('pending');
+            $table->enum('payment_status',['pending', 'completed', 'failed', 'refunded','paid on delivery'])->default('pending');
             $table->enum('order_status',['pending', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded'])->default('pending');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('promotion_id')->nullable();
@@ -29,12 +30,12 @@ return new class extends Migration
 
         Schema::create('order_detail', function (Blueprint $table){
             $table->id('order_detailID');
-            $table->unsignedBigInteger('product_id')->nullable();
+            $table->unsignedBigInteger('variant_id')->nullable();
             $table->unsignedBigInteger('order_id');
             $table->integer('quantity');
             $table->decimal('price',10,2);
 
-            $table->foreign('product_id')->references('productID')->on('products')->nullOnDelete();
+            $table->foreign('variant_id')->references('variantID')->on('product_variants')->nullOnDelete();
             $table->foreign('order_id')->references('orderID')->on('orders')->cascadeOnDelete();
         });
     }
@@ -45,5 +46,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('orders');
+        Schema::dropIfExists('order_detail');
     }
 };
