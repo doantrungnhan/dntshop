@@ -57,8 +57,6 @@ return new class extends Migration
             $table->foreign('color_id')->references('colorID')->on('product_colors')->nullOnDelete();
             $table->foreign('size_id')->references('sizeID')->on('product_sizes')->nullOnDelete();
 
-            $table->unique(['product_id', 'size_id','color_id']);
-
         });
     }
 
