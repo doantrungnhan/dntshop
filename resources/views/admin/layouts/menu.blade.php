@@ -77,6 +77,42 @@
                         </li>
                     </ul>
                 </li>
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-layers"></i></div>
+                        <div class="text">Danh mục</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="{{route('admin.categories.add')}}" class="">
+                                <div class="text">Thêm mới</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="{{route('admin.categories') }}" class="">
+                                <div class="text">Danh sách</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-shopping-cart"></i></div>
+                        <div class="text">Sản phẩm</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="{{route('admin.banners')}}" class="">
+                                <div class="text">Thêm mới</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="{{route('admin.banner.add') }}" class="">
+                                <div class="text">Danh sách</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="menu-item {{Route::currentRouteName() === 'admin.order' ? 'active' : ''}}">
                     <a href="{{route('admin.order')}}" class="">
                         <div class="icon"><i class="icon-grid"></i></div>

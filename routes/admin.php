@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\categoriesController;
 use App\Http\Controllers\admin\dashboardController;
 use App\Http\Controllers\admin\orderController;
 use Illuminate\Support\Facades\Route;
@@ -8,7 +9,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/', [dashboardController::class, 'index'])->name('admin.dashboard');
 
 
-    //Order 
+    //Order
     Route::prefix('order')->group(function (){
         Route::get('/', [orderController::class,'index'])->name('admin.order');
         Route::get('{code}/detail',[orderController::class,'order_detail'])->name('admin.order.detail');
@@ -30,4 +31,12 @@ Route::prefix('admin')->group(function() {
     Route::get('/users/{userID}/edit', [dashboardController::class, 'user_edit'])->name('admin.user.edit');
     Route::put('/users/update', [dashboardController::class, 'user_update'])->name('admin.user.update');
     Route::delete('/users/{userID}/delete', [dashboardController::class, 'user_delete'])->name('admin.user.delete');
+
+   //categories
+    Route::get('/categories', [categoriesController::class, 'categories'])->name('admin.categories');
+    Route::get('/categories/add', [categoriesController::class, 'categories_add'])->name('admin.categories.add');
+    Route::post('/categories/store', [categoriesController::class, 'categories_store'])->name('admin.categories.store');
+    Route::get('/categories/{categoriesID}/edit', [categoriesController::class, 'categories_edit'])->name('admin.categories.edit');
+    Route::put('/categories/{categoriesID}/update', [categoriesController::class, 'categories_update'])->name('admin.categories.update');
+    Route::delete('/categories/{categoriesID}/delete', [categoriesController::class, 'categories_delete'])->name('admin.categories.delete');
 });
