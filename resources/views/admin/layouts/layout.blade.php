@@ -249,11 +249,15 @@
                                             id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
                                             <span class="header-user wg-user">
                                                 <span class="image">
+                                                    @if(Auth::user()->avatar)
+                                                    <img src="/uploads/users/{{Auth::user()->avatar}}" alt="">
+                                                    @else
                                                     <img src="/assets/admin/images/avatar/user-1.png" alt="">
+                                                    @endif
                                                 </span>
                                                 <span class="flex flex-column">
-                                                    <span class="body-title mb-2">Kristin Watson</span>
-                                                    <span class="text-tiny">Admin</span>
+                                                    <span class="body-title mb-2">{{Auth::user()->full_name}}</span>
+                                                    <span class="text-tiny">{{role_vn(Auth::user()->role)}}</span>
                                                 </span>
                                             </span>
                                         </button>

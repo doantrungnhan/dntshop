@@ -30,6 +30,15 @@ function Slug($string)
     return strtolower($string);
 }
 
+function role_vn($role){
+    $role_name = [
+        1 => 'Quản trị viên',
+        0 => 'Người dùng',
+    ];
+
+    return $role_name[$role];
+}
+
 // Thêm vnd sau số tiền
 function number_price($price){
     return number_format($price,0,',','.') . ' vnđ' ;

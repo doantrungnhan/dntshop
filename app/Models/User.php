@@ -19,9 +19,16 @@ class User extends Authenticatable
     protected $primaryKey = 'userID';
     protected $fillable = [
         'full_name',
+        'phone',
         'email',
+        'role',
         'password',
     ];
+
+
+    public function isAdmin(){
+        return $this->role === 1 ;
+    }
 
     /**
      * The attributes that should be hidden for serialization.
