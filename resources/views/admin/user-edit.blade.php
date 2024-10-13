@@ -90,7 +90,7 @@
                         </div>
                     </fieldset>
                     @error('avatar')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <div class="col-md-12">
@@ -202,7 +202,7 @@
                                 </div>
                             </fieldset>
                             @error('avatar')
-                                <span class="alert alert-danger text-center">{{ $message }}</span>
+                                <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                             @enderror
                             
                             <div class="col-md-12">

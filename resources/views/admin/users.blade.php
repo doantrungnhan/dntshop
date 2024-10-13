@@ -28,7 +28,7 @@
                 <div class="wg-filter flex-grow">
                     <form class="form-search">
                         <fieldset class="name">
-                            <input type="text" placeholder="Search here..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
+                            <input type="text" placeholder="Tìm kiếm..." class="border border-secondary" name="name" tabindex="2" value="{{ request()->input('name') }}" aria-required="true">
                         </fieldset>
                         <div class="button-submit">
                             <button class="" type="submit"><i class="icon-search"></i></button>
@@ -58,7 +58,8 @@
                         <tbody>
                             @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->userID }}</td>
+                                {{-- <td>{{ $user->userID }}</td> --}}
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $user->full_name }}</td>
                                 <td>
                                     <img src="{{ asset('uploads/avatars/' . $user->avatar) }}" alt="{{ $user->full_name }}" style="width: 70px; height: auto;">

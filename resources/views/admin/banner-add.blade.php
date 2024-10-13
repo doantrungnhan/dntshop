@@ -38,7 +38,7 @@
                             tabindex="0" value="{{ old('position') }}" >
                     </fieldset>
                     @error('position')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                         {{-- <span class="text-danger font-weight-bold text-center" style="font-size: 16px;">{{ $message }}</span> --}}
                     @enderror
 
@@ -46,13 +46,13 @@
                         <div class="body-title">Trạng thái <span class="tf-color-1">*</span></div>
                         <div class="select flex-grow">
                             <select name="hidden" required>
-                                <option value="1" @if (old('status') == '1') selected @endif>Hiện</option>
-                                <option value="0" @if (old('status') == '0') selected @endif>Ẩn</option>
+                                <option value="1" @if (old('status') == '1') selected @endif>Ẩn</option>
+                                <option value="0" @if (old('status') == '0') selected @endif>Hiện</option>
                             </select>
                         </div>
                     </fieldset>
                     @error('hidden')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <fieldset>
@@ -74,7 +74,7 @@
                         </div>
                     </fieldset>
                     @error('image_url')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <div class="bot">

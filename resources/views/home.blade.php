@@ -1,33 +1,33 @@
 @extends('layouts.layout')
 
-@section('content')
+@section('main')
 <section class="swiper-container js-swiper-slider swiper-number-pagination slideshow" data-settings='{
-        "autoplay": {
-          "delay": 5000
-        },
-        "slidesPerView": 1,
-        "effect": "fade",
-        "loop": true
-      }'>
-      <div class="swiper-wrapper">
-        @foreach($banners as $banner)
-        <div class="swiper-slide">
-          <div class="overflow-hidden position-relative h-100">
-            <div class="slideshow-character position-absolute ">
-              <img loading="lazy" src="{{ asset('uploads/banners') }}/{{ $banner->image_url }}"
-                class="slideshow-character__img animate animate_fade animate_btt animate_delay-9  h-auto opacity-0" style="width: 100vw;" />
-            </div>
-          </div>
+    "autoplay": {
+      "delay": 5000
+    },
+    "slidesPerView": 1,
+    "effect": "fade",
+    "loop": true
+  }'>
+  <div class="swiper-wrapper">
+    @foreach($banners as $banner)
+    <div class="swiper-slide">
+      <div class="overflow-hidden position-relative h-100">
+        <div class="slideshow-character position-absolute ">
+          <img loading="lazy" src="{{ asset('uploads/banners') }}/{{ $banner->image_url }}"
+            class="slideshow-character__img animate animate_fade animate_btt animate_delay-9  h-auto opacity-0" style="width: 100vw;" />
         </div>
-        @endforeach
       </div>
+    </div>
+    @endforeach
+  </div>
 
-      <div class="container">
-        <div
-          class="slideshow-pagination slideshow-number-pagination d-flex align-items-center position-absolute bottom-0 mb-5">
-        </div>
-      </div>
-    </section>
+  <div class="container">
+    <div
+      class="slideshow-pagination slideshow-number-pagination d-flex align-items-center position-absolute bottom-0 mb-5">
+    </div>
+  </div>
+</section>
     <div class="container mw-1620 bg-white border-radius-10">
       <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
       <section class="category-carousel container">

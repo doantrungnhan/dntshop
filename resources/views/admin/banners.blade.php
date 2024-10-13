@@ -22,10 +22,10 @@
             <div class="wg-box">
                 <div class="flex items-center justify-between gap10 flex-wrap">
                     <div class="wg-filter flex-grow">
-                        <form class="form-search">
+                        <form class="form-search" action="{{ route('admin.banners') }}" method="GET">
                             <fieldset class="name">
-                                <input type="text" placeholder="Tìm kiếm..." class="" name="name"
-                                    tabindex="2" value="" aria-required="true" required="">
+                                <input type="text" placeholder="Tìm kiếm..." class="border border-secondary" name="name"
+                                    tabindex="2" value="{{ request()->input('name') }}" aria-required="true">
                             </fieldset>
                             <div class="button-submit">
                                 <button class="" type="submit"><i class="icon-search"></i></button>
@@ -52,13 +52,14 @@
                         <tbody>
                             @foreach ($banners as $banner)
                             <tr>
-                                <td>{{ $banner->bannerID }}</td>
+                                {{-- <td>{{ $banner->bannerID }}</td> --}}
+                                <td>{{ $loop->iteration }}</td>
                                 <td class="pname">
                                     <div class="image" style="width: 150px; height: auto;">
                                         <img src="{{ asset('uploads/banners') }}/{{ $banner->image_url }}" alt="" class="{{ $banner->bannerID }}" >
                                     </div>
                                 </td>
-                                <td>{{ $banner->hidden ? 'Hiện' : 'Ẩn' }}</td>
+                                <td>{{ $banner->hidden ? 'Ẩn' : 'Hiện' }}</td>
                                 <td>{{ $banner->position }}</td>
                                 <td>
                                     <div class="list-icon-function">
@@ -84,6 +85,7 @@
                 <div class="divider"></div>
                 <div class="flex items-center justify-between flex-wrap gap10 wgp-pagination">
                     {{ $banners->links('pagination::bootstrap-5') }}
+                    {{-- {{ $banners->appends(request()->input())->links('pagination::bootstrap-5') }} --}}
                 </div>
             </div>
         </div>
@@ -109,6 +111,7 @@
                 }
             });
         });
+        
     });
 </script>
 @endpush

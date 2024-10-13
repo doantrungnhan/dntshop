@@ -40,7 +40,7 @@
                             tabindex="0" value="{{ $banner->position }}" required>
                     </fieldset>
                     @error('position')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <fieldset class="category">
@@ -53,7 +53,7 @@
                         </div>
                     </fieldset>
                     @error('hidden')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <fieldset>
@@ -77,7 +77,7 @@
                         </div>
                     </fieldset>
                     @error('image_url')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <div class="bot">

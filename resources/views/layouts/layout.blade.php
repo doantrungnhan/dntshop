@@ -257,7 +257,7 @@
   </style>
     @include('layouts.header')
   <main>
-    @yield('content')
+    @yield('main')
   </main>
 
 
