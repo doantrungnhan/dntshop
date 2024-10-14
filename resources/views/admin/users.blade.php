@@ -8,7 +8,7 @@
             <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                 <li>
                     <a href="{{ route('admin.dashboard') }}">
-                        <div class="text-tiny">Bảng điều khiển</div>
+                        <div class="text-tiny">Dashboard</div>
                     </a>
                 </li>
                 <li>
@@ -24,11 +24,14 @@
             @if (Session::has('status'))
                 <p class="alert alert-success">{{ Session::get('status') }}</p>
             @endif
+            @if (Session::has('error'))
+                <p class="alert alert-danger">{{ Session::get('error') }}</p>
+            @endif
             <div class="flex items-center justify-between gap10 flex-wrap">
                 <div class="wg-filter flex-grow">
                     <form class="form-search">
                         <fieldset class="name">
-                            <input type="text" placeholder="Search here..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
+                            <input type="text" placeholder="Tìm kiếm..." class="border border-secondary" name="name" tabindex="2" value="{{ request()->input('name') }}" aria-required="true">
                         </fieldset>
                         <div class="button-submit">
                             <button class="" type="submit"><i class="icon-search"></i></button>
@@ -46,8 +49,10 @@
                             <tr>
                                 <th>#</th>
                                 <th>Tên</th>
-                                {{-- <th>Ảnh đại diện</th> --}}
+                                <th>Ảnh đại diện</th>
                                 <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
                                 <th>Ngày tạo</th>
                                 <th>Vai trò</th>
                                 <th>Hành động</th>
@@ -56,12 +61,17 @@
                         <tbody>
                             @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->userID }}</td>
+                                {{-- <td>{{ $user->userID }}</td> --}}
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $user->full_name }}</td>
-                                {{-- <td>{{ $user->avatar }}</td> --}}
+                                <td>
+                                    <img src="{{ asset('uploads/avatars/' . $user->avatar) }}" alt="{{ $user->full_name }}" style="width: 70px; height: auto;">
+                                </td>                                
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->created_at }}</td>
-                                <td>{{ $user->customer == 1 ? 'Khách hàng' : 'Quản trị viên' }}</td> 
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ $user->address }}</td>
+                                <td>{{ $user->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $user->role == 1 ? 'Admin' : 'Khách hàng' }}</td> 
                                 <td>
                                     <div class="list-icon-function">
                                         <a href="{{ route('admin.user.edit', $user->userID) }}">

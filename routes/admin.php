@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\admin\categoriesController;
 use App\Http\Controllers\admin\dashboardController;
+use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\orderController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,20 +19,20 @@ Route::middleware('admin')->prefix('admin')->group(function() {
     });
 
     // banners
-    Route::get('/banners', [dashboardController::class, 'banners'])->name('admin.banners');
-    Route::get('/banners/add', [dashboardController::class, 'banner_add'])->name('admin.banner.add');
-    Route::post('/banners/store', [dashboardController::class, 'banner_store'])->name('admin.banner.store');
-    Route::get('/banners/{bannerID}/edit', [dashboardController::class, 'banner_edit'])->name('admin.banner.edit');
-    Route::put('/banners/update', [dashboardController::class, 'banner_update'])->name('admin.banner.update');
-    Route::delete('/banners/{bannerID}/delete', [dashboardController::class, 'banner_delete'])->name('admin.banner.delete');
+    Route::get('/banners', [BannerController::class, 'banners'])->name('admin.banners');
+    Route::get('/banners/add', [BannerController::class, 'banner_add'])->name('admin.banner.add');
+    Route::post('/banners/store', [BannerController::class, 'banner_store'])->name('admin.banner.store');
+    Route::get('/banners/{bannerID}/edit', [BannerController::class, 'banner_edit'])->name('admin.banner.edit');
+    Route::put('/banners/update', [BannerController::class, 'banner_update'])->name('admin.banner.update');
+    Route::delete('/banners/{bannerID}/delete', [BannerController::class, 'banner_delete'])->name('admin.banner.delete');
 
     // users
-    Route::get('/users', [dashboardController::class, 'users'])->name('admin.users');
-    Route::get('/users/add', [dashboardController::class, 'user_add'])->name('admin.user.add');
-    Route::post('/users/store', [dashboardController::class, 'user_store'])->name('admin.user.store');
-    Route::get('/users/{userID}/edit', [dashboardController::class, 'user_edit'])->name('admin.user.edit');
-    Route::put('/users/update', [dashboardController::class, 'user_update'])->name('admin.user.update');
-    Route::delete('/users/{userID}/delete', [dashboardController::class, 'user_delete'])->name('admin.user.delete');
+    Route::get('/users', [UserController::class, 'users'])->name('admin.users');
+    Route::get('/users/add', [UserController::class, 'user_add'])->name('admin.user.add');
+    Route::post('/users/store', [UserController::class, 'user_store'])->name('admin.user.store');
+    Route::get('/users/{userID}/edit', [UserController::class, 'user_edit'])->name('admin.user.edit');
+    Route::put('/users/update', [UserController::class, 'user_update'])->name('admin.user.update');
+    Route::delete('/users/{userID}/delete', [UserController::class, 'user_delete'])->name('admin.user.delete');
 
    //categories
     Route::get('/categories', [categoriesController::class, 'categories'])->name('admin.categories');

@@ -37,23 +37,23 @@
                     <fieldset class="name">
                         <div class="body-title">Vị trí <span class="tf-color-1">*</span></div>
                         <input class="flex-grow" type="text" placeholder="Vị trí banner" name="position"
-                            tabindex="0" value="{{ $banner->position }}" required>
+                            tabindex="0" value="{{ $banner->position }}" >
                     </fieldset>
                     @error('position')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <fieldset class="category">
                         <div class="body-title">Trạng thái <span class="tf-color-1">*</span></div>
                         <div class="select flex-grow">
                             <select name="hidden" required>
-                                <option value="1" @if ($banner->hidden == '1') selected @endif>Hiện</option>
-                                <option value="0" @if ($banner->hidden == '0') selected @endif>Ẩn</option>
+                                <option value="1" @if ($banner->hidden == '1') selected @endif>Ẩn</option>
+                                <option value="0" @if ($banner->hidden == '0') selected @endif>Hiện</option>
                             </select>
                         </div>
                     </fieldset>
                     @error('hidden')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <fieldset>
@@ -77,7 +77,7 @@
                         </div>
                     </fieldset>
                     @error('image_url')
-                        <span class="alert alert-danger text-center">{{ $message }}</span>
+                        <span class="alert alert-danger text-center fs-4">{{ $message }}</span>
                     @enderror
 
                     <div class="bot">
