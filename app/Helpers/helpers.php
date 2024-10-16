@@ -41,7 +41,7 @@ function role_vn($role){
 
 // Thêm vnd sau số tiền
 function number_price($price){
-    return number_format($price,0,',','.') . ' vnđ' ;
+    return number_format($price,0,',','.') . ' VNĐ' ;
 }
 
 // Tính số tiền được giảm từ phiếu giảm giá

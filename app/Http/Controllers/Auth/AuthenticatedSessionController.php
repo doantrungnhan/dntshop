@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\loginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(loginRequest $request): RedirectResponse
     {
         $user = $request->only('email', 'password');
 
@@ -29,6 +30,10 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerate();
             return redirect()->intended(route('home', absolute: false));
         }
+
+        return back()->withErrors([
+            'email' => 'Địa chỉ email hoặc mật khẩu không chính xác',
+        ])->withInput();
     }
 
     /**

@@ -12,7 +12,7 @@
         <div class="center-item">
             <div class="center-heading">Trang chủ</div>
             <ul class="menu-list">
-                <li class="menu-item">
+                <li class="menu-item {{Route::currentRouteName() === 'admin.dashboard' ? 'active' : ''}}">
                     <a href="{{route('admin.dashboard')}}" class="">
                         <div class="icon"><i class="icon-grid"></i></div>
                         <div class="text">Bảng điều khiển</div>

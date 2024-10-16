@@ -12,6 +12,7 @@ use App\Models\Product_size;
 use App\Models\Product_variant;
 use App\Models\Promotion;
 use App\Models\User;
+use Illuminate\Support\Str;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -27,6 +28,9 @@ class DatabaseSeeder extends Seeder
             'full_name' => 'Đoàn trung Nhân',
             'email' => 'doantrungnhan24@gmail.com',
             'address' => 'K07/77 Phan Van Dinh, Da Nang',
+            'role' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
             'phone' => '0328652467',
             'password' => bcrypt('nhan2004'),
             'avatar' => 'doantrungnhan_avatar.jpg'
@@ -162,7 +166,9 @@ class DatabaseSeeder extends Seeder
                 'payment_status' => 'pending',
                 'order_status' => 'pending',
                 'user_id' => 1,
-                'promotion_id' => 1
+                'promotion_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
 
@@ -180,5 +186,50 @@ class DatabaseSeeder extends Seeder
                 'price' => 300000,
             ],
         ]);
+
+
+        for ($i = 2; $i <= 11; $i++) {
+            $orderCode = 'ODNT' . Str::padLeft($i, 3, '0');
+            
+            // Tạo đơn hàng
+            Order::insert([
+                'order_code' => $orderCode,
+                'total_amount' => rand(500000, 3000000), // Giá trị đơn hàng ngẫu nhiên
+                'payment_method' => collect(['cash', 'bank_transfer', 'momo'])->random(),
+                'shipping_fee' => rand(20000, 50000),
+                'payment_status' => collect(['pending', 'completed', 'failed', 'paid on delivery'])->random(),
+                'order_status' => collect(['pending', 'processing', 'shipped', 'delivered', 'cancelled'])->random(),
+                'user_id' => 1,
+                'promotion_id' => rand(1, 2), // Áp dụng mã khuyến mãi ngẫu nhiên
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            // Tạo chi tiết đơn hàng cho mỗi đơn
+            $variantId = rand(1, 6); // Lấy biến thể ngẫu nhiên từ các sản phẩm đã seed
+            $quantity = rand(1, 5);  // Số lượng sản phẩm ngẫu nhiên
+            $price = rand(100000, 500000); // Giá sản phẩm ngẫu nhiên
+
+            Order_detail::insert([
+                'variant_id' => $variantId,
+                'order_id' => $i,
+                'quantity' => $quantity,
+                'price' => $price,
+            ]);
+
+            // Tạo thêm chi tiết sản phẩm thứ 2 cho đơn hàng ngẫu nhiên
+            if (rand(0, 1)) { // 50% cơ hội để có chi tiết sản phẩm thứ 2
+                $variantId2 = rand(1, 6);
+                $quantity2 = rand(1, 3);
+                $price2 = rand(100000, 500000);
+
+                Order_detail::insert([
+                    'variant_id' => $variantId2,
+                    'order_id' => $i,
+                    'quantity' => $quantity2,
+                    'price' => $price2,
+                ]);
+            }
+        }
     }
 }
