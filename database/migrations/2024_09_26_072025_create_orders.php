@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id('orderID');
-            $table->string('order_code',100);
+            $table->string('order_code',100)->unique();
             $table->decimal('total_amount',10,2);
             $table->decimal('shipping_fee', 10, 2)->default(0);
             $table->enum('payment_method',['cash','bank_transfer','momo'])->default('cash');

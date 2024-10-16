@@ -15,17 +15,27 @@
                     <form method="POST" action="/login" name="login-form" class="needs-validation" novalidate="">
                         @csrf
                         <div class="form-floating mb-3">
-                            <input class="form-control form-control_gray " name="email" value="" required="" autocomplete="email"
+                            <input class="form-control form-control_gray @error('email') is-invalid @enderror" required name="email" value="{{old('email')}}" autocomplete="email"
                                 autofocus="">
                             <label for="email">Địa chỉ email *</label>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="pb-3"></div>
 
                         <div class="form-floating mb-3">
-                            <input id="password" type="password" class="form-control form-control_gray " name="password" required=""
+                            <input id="password" type="password" class="form-control form-control_gray @error('email') is-invalid @enderror" name="password" required=""
                                 autocomplete="current-password">
                             <label for="customerPasswodInput">Mật khẩu *</label>
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <button class="btn btn-primary w-100 text-uppercase" type="submit">Đăng nhập</button>
